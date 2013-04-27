@@ -1,0 +1,54 @@
+﻿<div id="body">
+    <section class="content-wrapper main-content clear-fix">
+        <div class="left-section">
+            <div>
+                <button id="addNewTimeCard" data-bind="click: addTimeCard">Add New TimeCard</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Summary</td>
+                        <td>Start Date</td>
+                        <td>End Date</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: timecards">
+                    <tr>
+                        <td data-bind="text: Summary"></td>
+                        <td data-bind="text: StartDate"></td>
+                        <td data-bind="text: EndDate"></td>
+                        <td><a href="#" data-bind="click: $parent.selectTimeCard">Select</a></td>
+                        <td><a href="#" class="downloadButton">Demo VCalendar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="right-section" data-bind="with: selectedTimeCard">
+            <div>Summary</div>
+            <div>
+                <input data-bind="value: Summary" /></div>
+            <div>Description</div>
+            <div>
+                <input data-bind="value: Description" /></div>
+            <div>Start Date</div>
+            <div>
+                <input data-bind="value: StartDate" /></div>
+            <div>End Date</div>
+            <div>
+                <input data-bind="value: EndDate" /></div>
+            <div>Status</div>
+            <div>
+                <input data-bind="value: Status" /></div>
+            <button id="submitButton">Save</button>
+            <button id="cancelButton">Cancel</button>
+        </div>
+    </section>
+</div>
+@section Scripts{
+    <script src="~/Scripts/knockout-2.2.1.debug.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
+    <script src="~/Scripts/knockout.protectedobservable.js"></script>
+    <script src="~/Scripts/timekeepr-vm.js"></script>
+    <script src="~/Scripts/timekeepr-client.js"></script>
+}
